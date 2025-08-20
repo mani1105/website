@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshmi Manikanta Sadhanala | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+        
+        section > * {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #10b981;
+            --dark: #1e293b;
+            --darker: #ffffff;
+            --light: #f8fafc;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        }
+        
+        body {
+            background-color: var(--darker);
+            color: var(--light);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            height: calc(100% - 24px);
+            width: 2px;
+            background: var(--primary);
+        }
+        
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            background: white;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--light);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background: var(--light);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+        
+        .contact-input {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Header/Navigation -->
+    <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-xl sm:text-2xl font-bold">Lakshmi Manikanta Sadhanala</div>
+            <nav class="hidden sm:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#about" class="hover:text-gray-200 transition">About</a></li>
+                    <li><a href="#experience" class="hover:text-gray-200 transition">Experience</a></li>
+                    <li><a href="#projects" class="hover:text-gray-200 transition">Projects</a></li>
+                    <li><a href="#education" class="hover:text-gray-200 transition">Education</a></li>
+                    <li><a href="#contact" class="hover:text-gray-200 transition">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-xl" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden gradient-bg px-4 pb-4">
+            <ul class="flex flex-col space-y-3">
+                <li><a href="#about" class="block hover:text-gray-200 transition">About</a></li>
+                <li><a href="#experience" class="block hover:text-gray-200 transition">Experience</a></li>
+                <li><a href="#projects" class="block hover:text-gray-200 transition">Projects</a></li>
+                <li><a href="#education" class="block hover:text-gray-200 transition">Education</a></li>
+                <li><a href="#contact" class="block hover:text-gray-200 transition">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-32 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-20 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+            <div class="absolute top-0 right-20 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-20 left-1/2 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
+            <div class="w-full md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight">Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">Manikanta</span></h1>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl mb-6 font-medium text-gray-100">Electronics Engineer & Software Developer</h2>
+                <p class="text-lg sm:text-xl mb-8 max-w-lg text-gray-100">Passionate about IoT, Web Development, and creating innovative solutions that bridge hardware and software.</p>
+                <div class="flex space-x-6">
+                    <a href="#contact" class="btn-primary px-8 py-4 rounded-lg font-semibold text-lg">Contact Me</a>
+                    <a href="#projects" class="btn-outline px-8 py-4 rounded-lg font-semibold text-lg">View Projects</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full shadow-2xl animate-pulse opacity-20"></div>
+                    <div class="relative w-full h-full bg-white rounded-full overflow-hidden border-4 border-white shadow-xl">
+                        <img src="/passportsizepic.png" alt="Profile Photo" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-center mx-auto">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-purple-500 shadow-lg">
+                        <img src="/passportsizepic.png" alt="Profile Photo" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <p class="text-lg mb-6">
+                        I'm a Master's student in Electronics & Communication Engineering with a strong passion for software development and IoT solutions. 
+                        With experience in both hardware and software domains, I specialize in creating integrated systems that leverage the best of both worlds.
+                    </p>
+                    <p class="text-lg mb-8">
+                        My technical expertise spans across programming languages like Python, Java, and C++, along with experience in web development, 
+                        embedded systems, and data processing. I enjoy tackling complex problems and transforming ideas into functional solutions.
+                    </p>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-4">Technical Skills</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div>
+                                <h4 class="font-medium mb-2">Languages</h4>
+                                <ul class="space-y-1">
+                                    <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i> Python</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i> Java</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i> C++</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i> SQL</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i> Verilog</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">Web Development</h4>
+                                <ul class="space-y-1">
+                                    <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i> HTML/CSS</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i> JavaScript</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i> Spring Boot</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">Tools & Technologies</h4>
+                                <ul class="space-y-1">
+                                    <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i> MATLAB</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i> Arduino</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i> Git/GitHub</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i> NLP</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i> IoT</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/lakshmi-manikanta-sadhanala-396259220/" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center">
+                            <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/mani1105" target="_blank" class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition flex items-center">
+                            <i class="fab fa-github mr-2"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Work Experience</h2>
+            
+            <div class="max-w-3xl mx-auto space-y-8">
+                <!-- Tech Mahindra -->
+                <div class="bg-white p-6 rounded-xl shadow-md relative timeline-item pl-8">
+                    <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-purple-400 mt-1"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                        <div>
+                            <h3 class="text-xl font-bold">Associate Software Engineer</h3>
+                            <p class="text-purple-600 font-medium">Tech Mahindra</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Nov 2024 - Present</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-600 mb-2">Hyderabad, Telangana, India · On-site</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Java</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Spring Boot</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Technical Mentor -->
+                <div class="bg-white p-6 rounded-xl shadow-md relative timeline-item pl-8">
+                    <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-purple-500 mt-1"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                        <div>
+                            <h3 class="text-xl font-bold">Technical Mentor</h3>
+                            <p class="text-purple-600 font-medium">Vishnu Institute of Technology (Autonomous)</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Feb 2024 - Nov 2024</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-600 mb-2">Bhimavaram, Andhra Pradesh, India · On-site</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Java</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Embedded Systems</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">IoT</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Web Development Intern -->
+                <div class="bg-white p-6 rounded-xl shadow-md relative timeline-item pl-8">
+                    <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-purple-500 mt-1"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                        <div>
+                            <h3 class="text-xl font-bold">Web Development Intern</h3>
+                            <p class="text-purple-600 font-medium">Oasis Infobyte</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Feb 2023 - Mar 2023</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Developed a responsive portfolio website using HTML, CSS, and JavaScript</li>
+                            <li>Created a temperature converter web application with interactive UI</li>
+                            <li>Implemented modern design principles and responsive layouts</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">HTML</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">CSS</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Academic Projects</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- IoT Child Monitoring -->
+                <div class="project-card rounded-xl overflow-hidden transition-all duration-300">
+                    <div class="h-48 bg-purple-500 flex items-center justify-center">
+                        <i class="fas fa-baby text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">IoT Enabled Child Monitoring System</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Python</span>
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Arduino</span>
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Web</span>
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">IoT</span>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li>Designed a distributed IoT network for real-time safety alerts</li>
+                            <li>Implemented WiFi-based data logging to centralized database</li>
+                            <li>Used microcontrollers and various sensors for monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Data Interaction Chatbot -->
+                <div class="project-card bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-blue-500 flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Data Interaction Chatbot</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Python</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">NLP</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Vector DB</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">LangChain</span>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li>Created a chatbot to parse and analyze structured datasets</li>
+                            <li>Implemented LangChain and Pinecone vector retrieval</li>
+                            <li>Enabled natural language interaction with data</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Weather Reporting via WhatsApp -->
+                <div class="project-card bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-green-500 flex items-center justify-center">
+                        <i class="fas fa-cloud-sun text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Weather Reporting via WhatsApp</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">IoT</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">API</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Python</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">DHT Sensors</span>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li>Developed an IoT weather monitoring system</li>
+                            <li>Implemented Python automation for real-time WhatsApp alerts</li>
+                            <li>Integrated DHT sensors for temperature and humidity data</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Smart Street Light System -->
+                <div class="project-card bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-yellow-500 flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Smart Street Light System</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Embedded C</span>
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">PIR Sensors</span>
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">IoT</span>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li>Built motion-based streetlight automation system</li>
+                            <li>Reduced energy consumption with PIR sensors</li>
+                            <li>Team lead for project implementation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Personal AI Assistant -->
+                <div class="project-card bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-red-500 flex items-center justify-center">
+                        <i class="fas fa-assistive-listening-systems text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Personal AI Assistant</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Python</span>
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">APIs</span>
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Speech Recognition</span>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li>Developed a desktop assistant for task automation</li>
+                            <li>Implemented voice control using speech APIs</li>
+                            <li>Integrated with calendar and other productivity tools</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Temperature Converter App -->
+                <div class="project-card bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-indigo-500 flex items-center justify-center">
+                        <i class="fas fa-temperature-low text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Temperature Converter App</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full text-xs">HTML</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full text-xs">CSS</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full text-xs">JavaScript</span>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li>Created during web development internship</li>
+                            <li>Interactive UI with real-time conversion</li>
+                            <li>Responsive design for all device sizes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Education</h2>
+            
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- MTech -->
+                <div class="bg-gray-100 p-6 rounded-xl shadow-md">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                        <div>
+                            <h3 class="text-xl font-bold">Master of Technology in Electronics & Communication Engineering</h3>
+                            <p class="text-purple-600 font-medium">Vishnu Institute of Technology, India</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">2024–2026</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-700">CGPA: 7.8 (till now)</p>
+                    </div>
+                </div>
+                
+                <!-- BTech -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                        <div>
+                            <h3 class="text-xl font-bold">Bachelor of Technology in Electronics & Communication Engineering</h3>
+                            <p class="text-purple-600 font-medium">Vishnu Institute of Technology, India</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">2020 – 2024</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-700">CGPA: 8.69</p>
+                    </div>
+                </div>
+                
+                <!-- Intermediate -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                        <div>
+                            <h3 class="text-xl font-bold">Intermediate (MPC)</h3>
+                            <p class="text-purple-600 font-medium">Tirumala Junior College, India</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">2018 – 2020</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-700">CGPA: 9.8</p>
+                    </div>
+                </div>
+                
+                <!-- Secondary School -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                        <div>
+                            <h3 class="text-xl font-bold">Secondary School</h3>
+                            <p class="text-purple-600 font-medium">Sri Chaitanya School, India</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">2017 – 2018</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-700">CGPA: 8.8</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="py-12 sm:py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Certifications</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Python for Data Science -->
+                <div class="bg-gray-100 p-6 rounded-xl border border-gray-600">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-certificate text-purple-500 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Python Programming for Data Science</h3>
+                            <p class="text-sm text-gray-600">Udemy</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-700">Nov 2022</p>
+                </div>
+                
+                <!-- Front-End Web Development -->
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-laptop-code text-blue-500 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Front-End Web Development</h3>
+                            <p class="text-sm text-gray-600">Codinza</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-700">Sept 2022 – Nov 2022</p>
+                </div>
+                
+                <!-- SQL for Beginners -->
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-database text-green-500 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">SQL for Beginners</h3>
+                            <p class="text-sm text-gray-600">Simplilearn</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-700">Mar 2023 – Apr 2023</p>
+                </div>
+                
+                <!-- Data Structures and Algorithms -->
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-project-diagram text-yellow-500 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Data Structures and Algorithms</h3>
+                            <p class="text-sm text-gray-600">Coursera</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-700">Oct 2023</p>
+                </div>
+                
+                <!-- Machine Learning Fundamentals -->
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-brain text-red-500 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Machine Learning Fundamentals</h3>
+                            <p class="text-sm text-gray-600">Udemy</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-700">Jan 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements & Extracurricular -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Achievements -->
+                <div>
+                    <h2 class="text-3xl font-bold text-center mb-8">Achievements</h2>
+                    <div class="bg-gray-100 p-6 rounded-xl shadow-md">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="bg-purple-100 p-2 rounded-full mr-4">
+                                    <i class="fas fa-trophy text-purple-500"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold">1st Prize — Swecha Coding Competition</h3>
+                                    <p class="text-sm text-gray-600">Demonstrated exceptional coding skills in competitive programming</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-purple-100 p-2 rounded-full mr-4">
+                                    <i class="fas fa-medal text-purple-500"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold">Top Performer — Tie Grid Competition</h3>
+                                    <p class="text-sm text-gray-600">Recognized for outstanding performance in technical challenge</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Extracurricular -->
+                <div>
+                    <h2 class="text-3xl font-bold text-center mb-8">Extra Curricular</h2>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i class="fas fa-users text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold">Organized Circuit Debugging Competition</h3>
+                                    <p class="text-sm text-gray-600">At Vishnu Institute of Technology, fostering technical skills among peers</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i class="fas fa-lightbulb text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold">Team Lead for Smart Street Light Project</h3>
+                                    <p class="text-sm text-gray-600">Led team in implementing IoT-based energy efficient solution</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-purple-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <a href="mailto:manikanta.sadhanala11@gmail.com" class="text-gray-600 hover:text-purple-500 transition">manikanta.sadhanala11@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-purple-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Phone</h4>
+                                <a href="tel:+918500744969" class="text-gray-600 hover:text-purple-500 transition">+91 8500744969</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fab fa-linkedin-in text-purple-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">LinkedIn</h4>
+                                <a href="https://linkedin.com/in/lakshmi-manikanta-sadhanala" target="_blank" class="text-gray-600 hover:text-purple-500 transition">linkedin.com/in/lakshmi-manikanta-sadhanala</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fab fa-github text-purple-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">GitHub</h4>
+                                <a href="https://github.com/mani1105" target="_blank" class="text-gray-600 hover:text-purple-500 transition">github.com/mani1105</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Send Me a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 bg-gray-100 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 bg-gray-100 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 bg-gray-100 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"></textarea>
+                        </div>
+                        <button type="submit" class="gradient-bg text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition w-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-6 sm:py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://www.linkedin.com/in/lakshmi-manikanta-sadhanala-396259220/" target="_blank" class="hover:text-gray-300 transition">
+                    <i class="fab fa-linkedin-in text-2xl"></i>
+                </a>
+                <a href="https://github.com/mani1105" target="_blank" class="hover:text-gray-300 transition">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="mailto:manikanta.sadhanala11@gmail.com" class="hover:text-gray-300 transition">
+                    <i class="fas fa-envelope text-2xl"></i>
+                </a>
+            </div>
+            
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Animate skill bars on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            
+            const animateOnScroll = function() {
+                skillBars.forEach(bar => {
+                    const barPosition = bar.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (barPosition < screenPosition) {
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = width;
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on page load
+        });
+    </script>
+</body>
+</html>
